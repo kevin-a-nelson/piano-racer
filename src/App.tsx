@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import SheetMusic from '@slnsw/react-sheet-music';
 import logo from './images/staff.png';
+import Note from './components/Note'
 import './App.css';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
   const [yoffset, setYoffset] = useState(0);
   const [counter, setCounter] = useState(0);
   const [delta, setDelta] = useState(1);
+  const [currentNotes, setCurrentNotes] = useState('')
 
 
   function moveNoteLeft() {
@@ -15,17 +17,22 @@ function App() {
     setXoffset(newXoffset)
   }
 
+  const Notes = () => {
+    const newNotes = []
+    for(let i = 0; i < currentNotes.length; i++) {
+      newNotes.push(<Note />)
+    }
+    return newNotes
+  }
+
+
   useEffect(() => {
-    let counter = 0;
     const interval = setInterval(() => {
-      counter += delta;
-      if (counter > 800) {
-        setXoffset(0)
-        counter = 0;
-      } else {
-        setXoffset((xoffset) => xoffset + delta)
-      }
-    }, 5);
+      // let newCurrentNotes = currentNotes
+      // newCurrentNotes += 'g';
+
+      setCurrentNotes((currentNotes) => currentNotes + 'g')
+    }, 2000);
 
       return () => clearInterval(interval);
   }, []);
@@ -34,24 +41,33 @@ function App() {
     <div className="App">
       {counter}
       <header className="App-header">
-        <div className='music-notes'>
-          <div className='staff'>
-              𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚
-            <div className='signature'>
-              𝄞
-            </div>
-          </div>
-          <div className='staff'>
-              𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚
-            <div className='signature'>
-              𝄢
-            </div>
-            <div className='notes'>
-              <div className='note' style={{right: xoffset}}>
-                𝅝
+
+        {/* Sheet Music */}
+        <div className='sheet-music'>
+
+          <div id="staves">
+
+            {/* Treble Cleff */}
+            <div id="treble-cleff" className='staff'> 𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚
+              <div className='signature'>
+                𝄞
               </div>
             </div>
+
+            {/* Base Cleff */}
+            <div id="base-clef" className='staff'> 𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚𝄚 
+                <div className='signature'> 
+                  𝄢
+                </div>
+            </div>
+            
           </div>
+
+          {/* Notes */}
+          <div id='notes'>
+            {Notes()}
+          </div>
+
         </div>
       </header>
     </div>

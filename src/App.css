@@ -41,15 +41,20 @@
   top: 0; 
 }
 
-.music-notes {
+.sheet-music {
   font-size: 100px;
   letter-spacing: -10px;
   font-family: 'Noto Music';
+
+  position: relative; 
+  margin: 0 auto; 
+  text-align: center;
 }
 
-.notes {
+#notes {
   position: absolute; 
   justify-content: right;
+  flex-direction: row;
   display: flex;
 
   top: 1px;
