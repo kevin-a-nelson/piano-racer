@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white; 
 }
 
 .App-logo {
@@ -11,17 +14,6 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin); */
-  color: white; 
 }
 
 .App-link {
@@ -49,20 +41,28 @@
 .signature {
   margin-left: 18px;
   position: absolute; 
-  width: 5%;
-  top: 0; 
   font-size: 1em;
 }
 
-.ledgers {
+#trebleClef {
+  top: 108px;
   position: absolute;
-  top: 5px;
-  transform: scale(.6, 1)
+}
+
+#baseClef {
+  top: 317px;
+  position: absolute;
+}
+
+.staff {
+  height: 18px;
 }
 
 .ledger {
   height: 18px;
-  font-weight: lighter;
+  transform: scale(.6, 1);
+  text-align: right;
+  margin-left: 227px;
 }
 
 
@@ -79,6 +79,10 @@
 .note {
   position: absolute;
   width: 5%;
+}
+
+.invisible {
+  visibility: hidden;
 }
 
 @keyframes App-logo-spin {

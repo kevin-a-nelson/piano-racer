@@ -6,69 +6,87 @@ import * as Notes from './Notes'
 import './App.css';
 
 function App() {
-  const [currentNote, setCurrentNote] = useState('ABCDEFG')
+  const [currentNote, setCurrentNote] = useState({})
 
 
   function getRandomArbitrary(min: number, max: number) {
     return Math.random() * (max - min) + min;
   } 
 
+  function displayNote() {
+    if (Object.keys(currentNote).length === 0) {
+      return null
+    } 
+
+    return <Note noteLetters={currentNote}/>
+  }
+
+  function setRandomNote() {
+    setCurrentNote((currentNote) => Notes.getRandomNote())
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
 
-        <div style={{paddingBottom: '20vh'}}></div>
+        <div style={{paddingBottom: '25px'}}></div>
 
         {/* Sheet Music */}
         <div className='sheet-music'>
 
           <div id="staves">
+            {/* Upper Cleff */}
 
-            {/* Treble Cleff Upper ledgers */}
-            <div className="ledgers" style={{top: '-110px', right: '0px'}}>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div> 
-            </div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
 
             {/* Treble Cleff */}
-            <div id="treble-cleff" className='staff'> 𝄚𝄚𝄚𝄚
-              <div className='signature'>
-                𝄞
-              </div>
-            </div>
 
-            {/* Treble Cleff Lower Ledgers */}
-            <div className="ledgers" style={{top: '54px', right: '0px'}}>
-              <div className="ledger">𝄖</div> 
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div> 
-            </div>
+            <div id="trebleClef" className="signature">𝄞</div>
 
-            <div style={{marginBottom: '50px'}}></div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+
+            {/* In between */}
+
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
 
             {/* Base Cleff */}
-            <div id="base-clef" className='staff'> 𝄚𝄚𝄚𝄚 
-                <div className='signature'> 
-                  𝄢
-                </div>
-            </div>
-
-            <div className="ledgers" style={{top: '222px', right: '0px'}}>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div>
-              <div className="ledger">𝄖</div> 
-            </div>
             
+            <div id="baseClef" className="signature">𝄢</div>
+
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+            <div className="staff">𝄖𝄖𝄖𝄖</div>
+
+            {/* Lower cleff */}
+            
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+            <div className="ledger">𝄖</div>
+
           </div>
 
-          <Note noteLetters={Notes.G5Trebble}/>
+          {displayNote()}
 
         </div>
-      </header>
+        <div style={{marginBottom: '100px'}}></div>
+
+        <button onClick={() => setRandomNote()}>A</button> 
+        <button>B</button> 
     </div>
   );
 }
