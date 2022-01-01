@@ -1,35 +1,23 @@
 import React, { useState, useEffect } from 'react'
+import * as Notes from '../Notes'
 
-export default function Note() {
-  const [xoffset, setXoffset] = useState(0);
-  const [isDead, setIsDead] = useState(false);
+const UNANSERED_COLOR = 'black'
+const CORRECT_ANSWER_COLOR = 'green'
+const WRONG_ANSWER_COLOR = 'red'
 
 
-  useEffect(() => {
-    // xoffset is always 0 within setInterval() for some reason
-    // xoffsetTracker is used to track the real value of xoffset
-    let xoffsetTracker = 0;
-    const interval = setInterval(() => {
-      xoffsetTracker += 1;
-      if (xoffsetTracker > 800) {
-        setIsDead((isDead) => true)
-        clearInterval(interval)
-      } else {
-        setXoffset((xoffset) => xoffset + 1)
-      }
 
-    }, 10);
-
-      return () => clearInterval(interval);
-  }, []);
-
-  if(isDead) {
-      return null
-  }
+export default function Note({noteLetters}: any) {
+  const [answeredCorrectly, setAnsweredCorrectly] = useState(false);
+  const [answeredIncorrectly, setAnsweredIncorrectly] = useState(false);
+  const [color, setColor] = useState(UNANSERED_COLOR);
+  
 
     return (
-        <div className='note' style={{right: xoffset}}>
-            𝅝
+        <div id='notes' style={{ top: noteLetters[0].yPosition, right: '36.5px'}}>
+            <div className='note'>
+                <span>𝅝</span>
+            </div>
         </div>
     )
 }
