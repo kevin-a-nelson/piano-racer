@@ -74,15 +74,13 @@ function App() {
       newShowLedgers[ledgerToShow] = true
     }
 
-    console.log(newShowLedgers)
-
     setShowLedgers((showLedgers) => newShowLedgers)
 
   }
 
   function midiNumberToLetter(midiNumber) {
     return {
-      START_TIME: 'C',
+      60: 'C',
       62: 'D',
       64: 'E',
       65: 'F',
@@ -95,6 +93,10 @@ function App() {
   function onPlayPianoInput(midiNumber) {
 
     const inputLetter = midiNumberToLetter(midiNumber)
+
+    console.log(midiNumber)
+    console.log(inputLetter)
+    console.log(currentNote['letter'])
 
     if(currentNote['letter'] === inputLetter) {
       setCorrectAnswerCount((correctAnswerCount) => correctAnswerCount + 1)
