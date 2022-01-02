@@ -86,7 +86,28 @@
 }
 
 .piano {
-  width: 250px;
+  width: 300px;
+  position: fixed;
+  bottom: 0px;
+  margin: 5% auto;
+  left: 0;
+  right: 0;
+}
+
+.statLabels {
+  display: flex;
+  justify-content: space-between;
+}
+
+.statNumbers {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+.stats {
+  width: 300px;
   margin: 0px auto;
 }
 

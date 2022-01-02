@@ -38,12 +38,24 @@ function App() {
   const [showLedgers, setShowLedgers] = useState(DefaultShowLedgers())
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
   const [wrongAnswerCount, setWrongAnswerCount] = useState(0)
+  const [time, setTime] = useState(5)
 
   const firstNote = MidiNumbers.fromNote('c4');
   const lastNote = MidiNumbers.fromNote('b4');
 
   useEffect(() => {
     setRandomNote()
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+
+      if(time > 0) {
+        setTime((time) => time - 1)
+      }
+
+    }, 1000);
+    return () => clearInterval(interval);
   }, []);
 
   function setRandomNote() {
@@ -100,57 +112,103 @@ function App() {
 
     return 'invisible'
   }
-  
+
+  function getAccuracy() {
+    return Math.floor((correctAnswerCount / ( correctAnswerCount + wrongAnswerCount )) * 100)
+  }
+
+  function accuracyText() {
+    if(correctAnswerCount + wrongAnswerCount === 0) {
+      return '--'
+    }
+    return `${getAccuracy()}%`
+  }
+
+  function timeText() {
+    if(time === 60) {
+      return '1:00'
+    }
+
+    if( time <= 0) {
+      return `00:00`
+    }
+
+    if(time < 10) {
+      return `00:0${time}`
+    }
+
+    if(time < 60) {
+      return `00:${time}`
+    }
+
+  }
+   
   return (
     <div className="App">
 
-        <div style={{height: '1vh'}}></div>
+        <div style={{height: '5vh'}}></div>
 
-        <span>{`Score ${correctAnswerCount / 2}`}</span>
-        {/* Sheet Music */}
-        <div className='sheet-music'>
+        <div className='stats'>
+          <div className='statLabels'>
+            <span>{`Time`}</span>
+            <span>{`Score`}</span>
+            <span>{'Accuracy'}</span>
+          </div>
+
+          <div className='statNumbers'>
+            <span>{timeText()}</span>
+            <span>{`${correctAnswerCount}`}</span>
+            <span>{accuracyText()}</span>
+          </div>
+        </div>
+
+        <div style={{height: '10vh'}}></div>
 
 
-          <div id="staves">
-            {/* Treble Cleff */}
+        {
+          time <= 0 ?
+          <button onClick={() => setTime((time) => 5)}>Try Again</button>
+          :
+          <div className='sheet-music'>
 
-            <div className='stavesContainer'>
-              <div id="trebleClef" className="signature">𝄞</div>
-              <div className={`staff ledger ${isInvisible(0)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(1)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(2)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(3)}`}>𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className={`staff ledger ${isInvisible(4)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(5)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(6)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(7)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(8)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(9)}`}>𝄖</div>
-              <div id="baseClef" className="signature">𝄢</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className="staff">𝄖</div>
-              <div className={`staff ledger ${isInvisible(10)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(11)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(12)}`}>𝄖</div>
-              <div className={`staff ledger ${isInvisible(13)}`}>𝄖</div>
+            <div id="staves">
+              {/* Treble Cleff */}
+
+              <div className='stavesContainer'>
+                <div id="trebleClef" className="signature">𝄞</div>
+                <div className={`staff ledger ${isInvisible(0)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(1)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(2)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(3)}`}>𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className={`staff ledger ${isInvisible(4)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(5)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(6)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(7)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(8)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(9)}`}>𝄖</div>
+                <div id="baseClef" className="signature">𝄢</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className="staff">𝄖</div>
+                <div className={`staff ledger ${isInvisible(10)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(11)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(12)}`}>𝄖</div>
+                <div className={`staff ledger ${isInvisible(13)}`}>𝄖</div>
+              </div>
             </div>
-            
+
+            <Note note={currentNote}/>
 
           </div>
 
-          {/* {displayNote()} */}
-          <Note note={currentNote}/>
-
-        </div>
-
+        }
 
       <div style={{height: '1vh'}}></div>
 
@@ -164,7 +222,7 @@ function App() {
           stopNote={(midiNumber) => {
             // Stop playing a given note - see notes below
           }}
-          width={250}
+          width={300}
         />
       </div>
     </div>
