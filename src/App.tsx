@@ -5,8 +5,28 @@ import Note from './components/Note'
 import * as Notes from './Notes'
 import './App.css';
 
+function DefaultShowLedgers() {
+  return [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+  ]
+} 
+
 function App() {
   const [currentNote, setCurrentNote] = useState({})
+  const [showLedgers, setShowLedgers] = useState(DefaultShowLedgers())
 
 
   function getRandomArbitrary(min: number, max: number) {
@@ -22,7 +42,23 @@ function App() {
   }
 
   function setRandomNote() {
-    setCurrentNote((currentNote) => Notes.getRandomNote())
+
+    const randomNote = Notes.getRandomNote()
+    const noteLedgers = randomNote[0].showLedgers
+
+    setCurrentNote((currentNote) => randomNote)
+
+    const newShowLedgers = DefaultShowLedgers()
+
+    for(let i = 0; i < noteLedgers.length; i++) {
+      const ledgerToShow = noteLedgers[i];
+      newShowLedgers[ledgerToShow] = true
+    }
+
+    console.log(newShowLedgers)
+
+    setShowLedgers((showLedgers) => newShowLedgers)
+
   }
   
   return (
@@ -36,10 +72,10 @@ function App() {
           <div id="staves">
             {/* Upper Cleff */}
 
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
+            <div className={`ledger ${showLedgers[0] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[1] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[2] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[3] ? '' : 'invisible'}`}>𝄖</div>
 
             {/* Treble Cleff */}
 
@@ -53,13 +89,12 @@ function App() {
 
             {/* In between */}
 
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
+            <div className={`ledger ${showLedgers[4] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[5] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[6] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[7] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[8] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[9] ? '' : 'invisible'}`}>𝄖</div>
 
             {/* Base Cleff */}
             
@@ -73,10 +108,10 @@ function App() {
 
             {/* Lower cleff */}
             
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
-            <div className="ledger">𝄖</div>
+            <div className={`ledger ${showLedgers[10] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[11] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[12] ? '' : 'invisible'}`}>𝄖</div>
+            <div className={`ledger ${showLedgers[13] ? '' : 'invisible'}`}>𝄖</div>
 
           </div>
 
