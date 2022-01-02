@@ -85,6 +85,11 @@
   visibility: hidden;
 }
 
+.piano {
+  width: 300px;
+  margin: 0px auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
