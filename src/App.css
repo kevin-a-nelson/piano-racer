@@ -21,7 +21,7 @@
 }
 
 .sheet-music {
-  font-size: 74px;
+  font-size: 40px;
   letter-spacing: -8px;
   font-family: 'Noto Music';
   width: 300px;
@@ -32,10 +32,21 @@
 }
 
 .staff {
+  margin-top: 0px;
+  padding-top: 0px;
   position: relative; 
-  margin: 0 auto; 
-  text-align: center;
-  font-size: 1em;
+  height: 9px;
+  transform: scale(10, 0.2);
+}
+
+/* .ledger {
+  height: 9px;
+  transform: scale(.6, 0.2);
+  text-align: right;
+} */
+
+.ledger {
+  left: 230px;
 }
 
 .signature {
@@ -45,40 +56,35 @@
 }
 
 #trebleClef {
-  top: 108px;
+  top: 27.4px;
+  left: 40px;
   position: absolute;
 }
 
 #baseClef {
-  top: 300px;
+  top: 126px;
+  left: 40px;
   position: absolute;
 }
 
-.staff {
-  height: 18px;
+.stavesContainer {
+  /* background: blue; */
+  width: 200px;
+  /* background: blue; */
+  margin: 0px auto;
+  /* height: 60px; */
+  height: 250px;
+  overflow: hidden;
+  /* background: blue; */
 }
-
-.ledger {
-  height: 18px;
-  transform: scale(.6, 1);
-  text-align: right;
-  margin-left: 227px;
-}
-
 
 #notes {
   position: absolute; 
-  justify-content: right;
-  display: flex;
-
-  top: 5px;
-  width: 100%;
-  font-size: 0.95em;
+  font-size: 25px;
 }
 
 .note {
   position: absolute;
-  width: 5%;
 }
 
 .invisible {
@@ -86,7 +92,7 @@
 }
 
 .piano {
-  width: 300px;
+  width: 250px;
   margin: 0px auto;
 }
 

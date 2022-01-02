@@ -74,11 +74,11 @@ function App() {
 
     if(currentNote['letter'] === inputLetter) {
       setCorrectAnswerCount((correctAnswerCount) => correctAnswerCount + 1)
+      setRandomNote()
     } else {
       setWrongAnswerCount((wrongAnswerCount) => wrongAnswerCount + 1)
     }
 
-    setRandomNote()
     return
   }
   
@@ -87,54 +87,44 @@ function App() {
 
         <div style={{height: '3vh'}}></div>
 
-        <span>{`Score ${correctAnswerCount}`}</span>
+        <span>{`Score ${correctAnswerCount / 2}`}</span>
         {/* Sheet Music */}
         <div className='sheet-music'>
 
 
           <div id="staves">
-            {/* Upper Cleff */}
-
-            <div className={`ledger ${showLedgers[0] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[1] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[2] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[3] ? '' : 'invisible'}`}>𝄖</div>
-
             {/* Treble Cleff */}
 
-            <div id="trebleClef" className="signature">𝄞</div>
 
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-
-            {/* In between */}
-
-            <div className={`ledger ${showLedgers[4] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[5] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[6] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[7] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[8] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[9] ? '' : 'invisible'}`}>𝄖</div>
-
-            {/* Base Cleff */}
+            <div className='stavesContainer'>
+              <div id="trebleClef" className="signature">𝄞</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div id="baseClef" className="signature">𝄢</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className="staff">𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+            </div>
             
-            <div id="baseClef" className="signature">𝄢</div>
-
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-            <div className="staff">𝄖𝄖𝄖𝄖</div>
-
-            {/* Lower cleff */}
-            
-            <div className={`ledger ${showLedgers[10] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[11] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[12] ? '' : 'invisible'}`}>𝄖</div>
-            <div className={`ledger ${showLedgers[13] ? '' : 'invisible'}`}>𝄖</div>
 
           </div>
 
@@ -143,7 +133,8 @@ function App() {
 
         </div>
 
-      <div style={{marginBottom: '100px'}}></div>
+
+      <div style={{height: '1vh'}}></div>
 
       <div className='piano'>
         <Piano
@@ -155,7 +146,7 @@ function App() {
           stopNote={(midiNumber) => {
             // Stop playing a given note - see notes below
           }}
-          width={300}
+          width={250}
         />
       </div>
     </div>

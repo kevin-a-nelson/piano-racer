@@ -1,5 +1,5 @@
 
-const A7Position = -32
+const A7Position = -30
 const wholeStep = 18
 const halfStep = 9
 
