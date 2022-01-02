@@ -33,12 +33,14 @@ export const A7Trebble = {
     yPosition: `1px`
 }
 
+const START_TIME = 60
+
 function App() {
   const [currentNote, setCurrentNote] = useState(A7Trebble)
   const [showLedgers, setShowLedgers] = useState(DefaultShowLedgers())
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
   const [wrongAnswerCount, setWrongAnswerCount] = useState(0)
-  const [time, setTime] = useState(5)
+  const [time, setTime] = useState(START_TIME)
 
   const firstNote = MidiNumbers.fromNote('c4');
   const lastNote = MidiNumbers.fromNote('b4');
@@ -80,7 +82,7 @@ function App() {
 
   function midiNumberToLetter(midiNumber) {
     return {
-      60: 'C',
+      START_TIME: 'C',
       62: 'D',
       64: 'E',
       65: 'F',
@@ -142,6 +144,12 @@ function App() {
     }
 
   }
+
+  function restart() {
+    setTime((time) => START_TIME)
+    setCorrectAnswerCount((correctAnswerCount) => 0)
+    setWrongAnswerCount((wrongAnswerCount) => 0)
+  }
    
   return (
     <div className="App">
@@ -167,7 +175,7 @@ function App() {
 
         {
           time <= 0 ?
-          <button onClick={() => setTime((time) => 5)}>Try Again</button>
+          <button onClick={() => restart()}>Try Again</button>
           :
           <div className='sheet-music'>
 
