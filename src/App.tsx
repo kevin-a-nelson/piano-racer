@@ -25,8 +25,16 @@ function DefaultShowLedgers() {
   ]
 } 
 
+export const A7Trebble = {
+    letter: 'A',
+    octave: 7,
+    stave: 'Treble',
+    showLedgers: [0, 1, 2, 3],
+    yPosition: `1px`
+}
+
 function App() {
-  const [currentNote, setCurrentNote] = useState({})
+  const [currentNote, setCurrentNote] = useState(A7Trebble)
   const [showLedgers, setShowLedgers] = useState(DefaultShowLedgers())
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
   const [wrongAnswerCount, setWrongAnswerCount] = useState(0)
@@ -51,6 +59,8 @@ function App() {
       const ledgerToShow = noteLedgers[i];
       newShowLedgers[ledgerToShow] = true
     }
+
+    console.log(newShowLedgers)
 
     setShowLedgers((showLedgers) => newShowLedgers)
 
@@ -81,11 +91,20 @@ function App() {
 
     return
   }
+
+  function isInvisible(idx) {
+
+    if(showLedgers[idx]) {
+      return ''
+    }
+
+    return 'invisible'
+  }
   
   return (
     <div className="App">
 
-        <div style={{height: '3vh'}}></div>
+        <div style={{height: '1vh'}}></div>
 
         <span>{`Score ${correctAnswerCount / 2}`}</span>
         {/* Sheet Music */}
@@ -95,34 +114,33 @@ function App() {
           <div id="staves">
             {/* Treble Cleff */}
 
-
             <div className='stavesContainer'>
               <div id="trebleClef" className="signature">𝄞</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(0)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(1)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(2)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(3)}`}>𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(4)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(5)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(6)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(7)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(8)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(9)}`}>𝄖</div>
               <div id="baseClef" className="signature">𝄢</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
               <div className="staff">𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
-              <div className={`staff ledger ${true ? '' : 'invisible'}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(10)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(11)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(12)}`}>𝄖</div>
+              <div className={`staff ledger ${isInvisible(13)}`}>𝄖</div>
             </div>
             
 

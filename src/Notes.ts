@@ -1,7 +1,7 @@
 
-const A7Position = -30
-const wholeStep = 18
-const halfStep = 9
+const A7Position = -35
+const wholeStep = 9
+const halfStep = 4.5
 
 export const A7Trebble = {
     letter: 'A',

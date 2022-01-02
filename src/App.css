@@ -39,12 +39,6 @@
   transform: scale(10, 0.2);
 }
 
-/* .ledger {
-  height: 9px;
-  transform: scale(.6, 0.2);
-  text-align: right;
-} */
-
 .ledger {
   left: 230px;
 }
@@ -80,7 +74,7 @@
 
 #notes {
   position: absolute; 
-  font-size: 25px;
+  font-size: 33px;
 }
 
 .note {
