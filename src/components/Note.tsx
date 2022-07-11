@@ -15,7 +15,7 @@ export default function Note({note}: any) {
     }
 
     return (
-        <div id='notes' style={{ top: note.yPosition, right: '71px'}}>
+        <div id='notes' style={{ top: `${note.yPosition}px`, right: '71px'}}>
             <div className='note'>
                 <span>𝅘</span>
             </div>

@@ -3,8 +3,12 @@ import Note from './components/Note'
 import * as Notes from './Notes'
 import './App.css';
 import 'react-piano/dist/styles.css';
+import UnstyledSelectSimple from './components/UnstyledSelectSimple';
+import { AFlatMajior, CFlatMajior, DFlatMajior, EFlatMajior, GFlatMajior } from './Notes'
 
 import { Piano, KeyboardShortcuts, MidiNumbers } from 'react-piano';
+import KeySignature from './components/KeySignature';
+import { Button } from '@mui/material';
 
 function DefaultShowLedgers() {
   return [
@@ -25,13 +29,31 @@ function DefaultShowLedgers() {
   ]
 } 
 
+const keySignatures = {
+    "EFlatMajior": EFlatMajior,
+    "AFlatMajior": AFlatMajior,
+    "CFlatMajior": CFlatMajior,
+    "DFlatMajior": DFlatMajior,
+    "GFlatMajior": GFlatMajior,
+}
+
 export const A7Trebble = {
     letter: 'A',
     octave: 7,
     stave: 'Treble',
     showLedgers: [0, 1, 2, 3],
-    yPosition: `1px`
+    yPosition: 1
 }
+
+const keySignatureOptions = [
+  {value: "EFlatMajior", text: "E♭ Majior"},
+  {value: "AFlatMajior", text: "A♭ Majior"},
+  {value: "DFlatMajior", text: "D♭ Majior"},
+  {value: "EFlatMajior", text: "E♭ Majior"},
+  {value: "CFlatMajior", text: "C♭ Majior"},
+]
+
+const DEFAULT_KEY_SIGNATURE = "EFlatMajior"
 
 const START_TIME = 60
 
@@ -40,6 +62,7 @@ function App() {
   const [showLedgers, setShowLedgers] = useState(DefaultShowLedgers())
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
   const [wrongAnswerCount, setWrongAnswerCount] = useState(0)
+  const [selectedKeySignature, setSelectedKeySignature] = useState(DEFAULT_KEY_SIGNATURE)
   const [time, setTime] = useState(START_TIME)
 
   const firstNote = MidiNumbers.fromNote('c4');
@@ -80,25 +103,42 @@ function App() {
 
   function midiNumberToLetter(midiNumber) {
     return {
+      59: 'B',
       60: 'C',
+      61: 'C#',
       62: 'D',
+      63: 'D#',
       64: 'E',
       65: 'F',
+      66: 'F#',
       67: 'G',
+      68: 'G#',
       69: 'A',
+      70: 'A#',
       71: 'B',
+      72: 'C',
     }[midiNumber]
   }
 
   function onPlayPianoInput(midiNumber) {
 
+    let keySignatureFlats = keySignatures[selectedKeySignature].map((keySignature) => keySignature.letter)
+    let isFlat = keySignatureFlats.includes(currentNote['letter'])
+
+
+    if(isFlat) {
+      midiNumber += 1
+    }
+
     const inputLetter = midiNumberToLetter(midiNumber)
 
-    console.log(midiNumber)
-    console.log(inputLetter)
-    console.log(currentNote['letter'])
+    console.table({
+      isFlat,
+      inputLetter,
+      currentNote: currentNote['letter'],
+    })
 
-    if(currentNote['letter'] === inputLetter) {
+    if(inputLetter === currentNote['letter']) {
       setCorrectAnswerCount((correctAnswerCount) => correctAnswerCount + 1)
       setRandomNote()
     } else {
@@ -159,25 +199,39 @@ function App() {
         <div style={{height: '5vh'}}></div>
 
         <div className='stats'>
-          <div className='statLabels'>
-            <span>{`Time`}</span>
-            <span>{`Score`}</span>
-            <span>{'Accuracy'}</span>
-          </div>
-
           <div className='statNumbers'>
-            <span>{timeText()}</span>
-            <span>{`${correctAnswerCount}`}</span>
-            <span>{accuracyText()}</span>
+            <div>
+              <span>Time</span>
+              <br></br>
+              <span>{timeText()}</span>
+            </div>
+            <div>
+              <span>Score</span>
+              <br></br>
+              <span>{`${correctAnswerCount}`}</span>
+            </div>
+            <div>
+              <span>Score</span>
+              <br></br>
+              <span>{accuracyText()}</span>
+            </div>
           </div>
         </div>
 
-        <div style={{height: '10vh'}}></div>
+        <div style={{height: '5vh'}}></div>
 
-
+        <div className='contents'>
         {
           time <= 0 ?
-          <button onClick={() => restart()}>Try Again</button>
+          <div className="settings">
+            <div className="vertical-center">
+              <div className="horizontal-center">
+                <UnstyledSelectSimple options={keySignatureOptions} defaultValue={DEFAULT_KEY_SIGNATURE} onChange={setSelectedKeySignature}/>
+                <hr style={{width: "60px" }}></hr>
+                <Button style={{color: "white" }} onClick={() => restart()} size="medium">Start</Button>
+              </div>
+            </div>
+          </div>
           :
           <div className='sheet-music'>
 
@@ -214,11 +268,13 @@ function App() {
               </div>
             </div>
 
+            <KeySignature keySignature={selectedKeySignature} />
             <Note note={currentNote}/>
 
           </div>
 
         }
+        </div>
 
       <div style={{height: '1vh'}}></div>
 

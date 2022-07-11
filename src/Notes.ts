@@ -3,12 +3,15 @@ const A7Position = -35
 const wholeStep = 9
 const halfStep = 4.5
 
+const B5TrebbleLeft = 95
+const leftStep = 10
+
 export const A7Trebble = {
     letter: 'A',
     octave: 7,
     stave: 'Treble',
     showLedgers: [0, 1, 2, 3],
-    yPosition: `${A7Position}px`
+    yPosition: A7Position
 }
 
 export const G7Trebble = {
@@ -16,7 +19,7 @@ export const G7Trebble = {
     octave: 7,
     stave: 'Treble',
     showLedgers: [0, 1, 2, 3],
-    yPosition: `${A7Position + halfStep}px`
+    yPosition: A7Position + halfStep
 }
 
 export const F7Trebble = {
@@ -24,7 +27,7 @@ export const F7Trebble = {
     octave: 7,
     stave: 'Treble',
     showLedgers: [1, 2, 3],
-    yPosition: `${A7Position + halfStep * 2}px`
+    yPosition: A7Position + halfStep * 2
 }
 
 export const E7Trebble = {
@@ -32,7 +35,7 @@ export const E7Trebble = {
     octave: 7,
     stave: 'Treble',
     showLedgers: [1, 2, 3],
-    yPosition: `${A7Position + halfStep * 3}px`
+    yPosition: A7Position + halfStep * 3
 }
 
 export const D7Trebble = {
@@ -40,7 +43,7 @@ export const D7Trebble = {
     octave: 7,
     stave: 'Treble',
     showLedgers: [2, 3], 
-    yPosition: `${A7Position + halfStep * 4}px`
+    yPosition: A7Position + halfStep * 4
 }
 
 export const C7Trebble = {
@@ -48,7 +51,7 @@ export const C7Trebble = {
     octave: 7,
     stave: 'Treble',
     showLedgers: [2, 3],
-    yPosition: `${A7Position + halfStep * 5}px`
+    yPosition: A7Position + halfStep * 5
 }
 
 export const B6Trebble = {
@@ -56,7 +59,7 @@ export const B6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [3],
-    yPosition: `${A7Position + halfStep * 6}px`
+    yPosition: A7Position + halfStep * 6
 }
 
 export const A6Trebble = {
@@ -64,7 +67,8 @@ export const A6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [3],
-    yPosition: `${A7Position + halfStep * 7}px`
+    left: B5TrebbleLeft,
+    yPosition: A7Position + halfStep * 7
 }
 
 export const G6Trebble = {
@@ -72,7 +76,7 @@ export const G6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 8}px`
+    yPosition: A7Position + halfStep * 8
 }
 
 export const F6Trebble = {
@@ -80,7 +84,8 @@ export const F6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 9}px`
+    left: B5TrebbleLeft + leftStep * 6,
+    yPosition: A7Position + halfStep * 9
 }
 
 export const E6Trebble = {
@@ -88,7 +93,8 @@ export const E6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 10}px`
+    left: B5TrebbleLeft + leftStep,
+    yPosition: A7Position + halfStep * 10
 }
 
 export const D6Trebble = {
@@ -96,7 +102,8 @@ export const D6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 11}px`
+    left: B5TrebbleLeft + leftStep * 3,
+    yPosition: A7Position + halfStep * 11
 }
 
 export const C6Trebble = {
@@ -104,7 +111,8 @@ export const C6Trebble = {
     octave: 6,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 12}px`
+    left: B5TrebbleLeft + leftStep * 5,
+    yPosition: A7Position + halfStep * 12
 }
 
 export const B5Trebble = {
@@ -112,7 +120,8 @@ export const B5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 13}px`
+    left: B5TrebbleLeft,
+    yPosition: A7Position + halfStep * 13
 }
 
 export const A5Trebble = {
@@ -120,7 +129,8 @@ export const A5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 14}px`
+    left: B5TrebbleLeft + leftStep * 2,
+    yPosition: A7Position + halfStep * 14
 }
 
 export const G5Trebble = {
@@ -128,7 +138,8 @@ export const G5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 15}px`
+    left: B5TrebbleLeft + leftStep * 4,
+    yPosition: A7Position + halfStep * 15
 }
 
 export const F5Trebble = {
@@ -136,7 +147,8 @@ export const F5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 16}px`
+    left: B5TrebbleLeft + leftStep * 6,
+    yPosition: A7Position + halfStep * 16
 }
 
 export const E5Trebble = {
@@ -144,7 +156,7 @@ export const E5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 17}px`
+    yPosition: A7Position + halfStep * 17
 }
 
 export const D5Trebble = {
@@ -152,7 +164,8 @@ export const D5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 18}px`
+    left: B5TrebbleLeft + halfStep * 4,
+    yPosition: A7Position + halfStep * 18
 }
 
 export const C5Trebble = {
@@ -160,7 +173,7 @@ export const C5Trebble = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [4],
-    yPosition: `${A7Position + halfStep * 19}px`
+    yPosition: A7Position + halfStep * 19
 }
 
 export const B4Trebble = {
@@ -168,7 +181,7 @@ export const B4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4],
-    yPosition: `${A7Position + halfStep * 20}px`
+    yPosition: A7Position + halfStep * 20
 }
 
 export const A4Trebble = {
@@ -176,7 +189,7 @@ export const A4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4, 5],
-    yPosition: `${A7Position + halfStep * 21}px`
+    yPosition: A7Position + halfStep * 21
 }
 
 export const G4Trebble = {
@@ -184,7 +197,8 @@ export const G4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4, 5],
-    yPosition: `${A7Position + halfStep * 22}px`
+    left: B5TrebbleLeft + leftStep * 5,
+    yPosition: A7Position + halfStep * 22
 }
 
 export const F4Trebble = {
@@ -192,7 +206,7 @@ export const F4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4, 5, 6],
-    yPosition: `${A7Position + halfStep * 23}px`
+    yPosition: A7Position + halfStep * 23
 }
 
 export const E4Trebble = {
@@ -200,7 +214,7 @@ export const E4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4, 5, 6],
-    yPosition: `${A7Position + halfStep * 24}px`
+    yPosition: A7Position + halfStep * 24
 }
 
 export const D4Trebble = {
@@ -208,7 +222,8 @@ export const D4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4, 5, 6, 7],
-    yPosition: `${A7Position + halfStep * 25}px`
+    left: B5TrebbleLeft + halfStep * 4,
+    yPosition: A7Position + halfStep * 25
 }
 
 export const C4Trebble = {
@@ -216,7 +231,7 @@ export const C4Trebble = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [4, 5, 6, 7],
-    yPosition: `${A7Position + halfStep * 26}px`
+    yPosition: A7Position + halfStep * 26
 }
 
 export const B3Trebble = {
@@ -224,7 +239,7 @@ export const B3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [6, 7, 8, 9],
-    yPosition: `${A7Position + halfStep * 27}px`
+    yPosition: A7Position + halfStep * 27
 }
 
 export const A3Trebble = {
@@ -232,7 +247,7 @@ export const A3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [6, 7, 8, 9],
-    yPosition: `${A7Position + halfStep * 28}px`
+    yPosition: A7Position + halfStep * 28
 }
 
 export const G3Trebble = {
@@ -240,7 +255,7 @@ export const G3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [7, 8, 9],
-    yPosition: `${A7Position + halfStep * 29}px`
+    yPosition: A7Position + halfStep * 29
 }
 
 export const F3Trebble = {
@@ -248,7 +263,7 @@ export const F3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [7, 8, 9],
-    yPosition: `${A7Position + halfStep * 30}px`
+    yPosition: A7Position + halfStep * 30
 }
 
 export const E3Trebble = {
@@ -256,7 +271,7 @@ export const E3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [8, 9],
-    yPosition: `${A7Position + halfStep * 31}px`
+    yPosition: A7Position + halfStep * 31
 }
 
 export const D3Trebble = {
@@ -264,7 +279,7 @@ export const D3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [8, 9],
-    yPosition: `${A7Position + halfStep * 32}px`
+    yPosition: A7Position + halfStep * 32
 }
 
 export const C3Trebble = {
@@ -272,7 +287,7 @@ export const C3Trebble = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [9],
-    yPosition: `${A7Position + halfStep * 33}px`
+    yPosition: A7Position + halfStep * 33
 }
 
 export const C5Clef = {
@@ -280,7 +295,7 @@ export const C5Clef = {
     octave: 5,
     stave: 'Treble',
     showLedgers: [6, 7, 8, 9],
-    yPosition: `${A7Position + halfStep * 22}px`
+    yPosition: A7Position + halfStep * 22
 }
 
 export const B4Clef = {
@@ -288,7 +303,7 @@ export const B4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [6, 7, 8, 9],
-    yPosition: `${A7Position + halfStep * 23}px`
+    yPosition: A7Position + halfStep * 23
 }
 
 export const A4Clef = {
@@ -296,7 +311,7 @@ export const A4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [7, 8, 9],
-    yPosition: `${A7Position + halfStep * 24}px`
+    yPosition: A7Position + halfStep * 24
 }
 
 export const G4Clef = {
@@ -304,7 +319,7 @@ export const G4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [7, 8, 9],
-    yPosition: `${A7Position + halfStep * 25}px`
+    yPosition: A7Position + halfStep * 25
 }
 
 export const F4Clef = {
@@ -312,7 +327,7 @@ export const F4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [8, 9],
-    yPosition: `${A7Position + halfStep * 26}px`
+    yPosition: A7Position + halfStep * 26
 }
 
 export const E4Clef = {
@@ -320,7 +335,7 @@ export const E4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [8, 9],
-    yPosition: `${A7Position + halfStep * 27}px`
+    yPosition: A7Position + halfStep * 27
 }
 
 export const D4Clef = {
@@ -328,7 +343,8 @@ export const D4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [9],
-    yPosition: `${A7Position + halfStep * 28}px`
+    left: B5TrebbleLeft + halfStep * 4,
+    yPosition: A7Position + halfStep * 28
 }
 
 export const C4Clef = {
@@ -336,7 +352,7 @@ export const C4Clef = {
     octave: 4,
     stave: 'Treble',
     showLedgers: [9],
-    yPosition: `${A7Position + halfStep * 29}px`
+    yPosition: A7Position + halfStep * 29
 }
 
 export const B3Clef = {
@@ -344,7 +360,7 @@ export const B3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 30}px`
+    yPosition: A7Position + halfStep * 30
 }
 
 export const A3Clef = {
@@ -352,7 +368,7 @@ export const A3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 31}px`
+    yPosition: A7Position + halfStep * 31
 }
 
 export const G3Clef = {
@@ -360,7 +376,8 @@ export const G3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 32}px`
+    left: B5TrebbleLeft + leftStep * 5,
+    yPosition: A7Position + halfStep * 32
 }
 
 export const F3Clef = {
@@ -368,7 +385,7 @@ export const F3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 33}px`
+    yPosition: A7Position + halfStep * 33
 }
 
 export const E3Clef = {
@@ -376,7 +393,8 @@ export const E3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 34}px`
+    left: B5TrebbleLeft + leftStep,
+    yPosition: A7Position + halfStep * 34
 }
 
 export const D3Clef = {
@@ -384,7 +402,8 @@ export const D3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 35}px`
+    left: B5TrebbleLeft + leftStep * 3,
+    yPosition: A7Position + halfStep * 35
 }
 
 export const C3Clef = {
@@ -392,7 +411,8 @@ export const C3Clef = {
     octave: 3,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 36}px`
+    left: B5TrebbleLeft + leftStep * 5,
+    yPosition: A7Position + halfStep * 36
 }
 
 export const B2Clef = {
@@ -400,7 +420,8 @@ export const B2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 37}px`
+    left: B5TrebbleLeft,
+    yPosition: A7Position + halfStep * 37
 }
 
 export const A2Clef = {
@@ -408,7 +429,8 @@ export const A2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 38}px`
+    left: B5TrebbleLeft + leftStep * 2,
+    yPosition: A7Position + halfStep * 38
 }
 
 export const G2Clef = {
@@ -416,7 +438,8 @@ export const G2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 39}px`
+    left: B5TrebbleLeft + leftStep * 4,
+    yPosition: A7Position + halfStep * 39
 }
 
 export const F2Clef = {
@@ -424,7 +447,8 @@ export const F2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [],
-    yPosition: `${A7Position + halfStep * 40}px`
+    left: B5TrebbleLeft + leftStep * 6,
+    yPosition: A7Position + halfStep * 40
 }
 
 export const E2Clef = {
@@ -432,7 +456,7 @@ export const E2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [10],
-    yPosition: `${A7Position + halfStep * 41}px`
+    yPosition: A7Position + halfStep * 41
 }
 
 export const D2Clef = {
@@ -440,7 +464,7 @@ export const D2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [10],
-    yPosition: `${A7Position + halfStep * 42}px`
+    yPosition: A7Position + halfStep * 42
 }
 
 export const C2Clef = {
@@ -448,7 +472,8 @@ export const C2Clef = {
     octave: 2,
     stave: 'Treble',
     showLedgers: [10, 11],
-    yPosition: `${A7Position + halfStep * 43}px`
+    left: B5TrebbleLeft + leftStep * 5,
+    yPosition: A7Position + halfStep * 43
 }
 
 export const B1Clef = {
@@ -456,7 +481,7 @@ export const B1Clef = {
     octave: 1,
     stave: 'Treble',
     showLedgers: [10, 11],
-    yPosition: `${A7Position + halfStep * 44}px`
+    yPosition: A7Position + halfStep * 44
 }
 
 export const A1Clef = {
@@ -464,7 +489,7 @@ export const A1Clef = {
     octave: 1,
     stave: 'Treble',
     showLedgers: [10, 11, 12],
-    yPosition: `${A7Position + halfStep * 45}px`
+    yPosition: A7Position + halfStep * 45
 }
 
 export const G1Clef = {
@@ -472,7 +497,7 @@ export const G1Clef = {
     octave: 1,
     stave: 'Treble',
     showLedgers: [10, 11, 12],
-    yPosition: `${A7Position + halfStep * 46}px`
+    yPosition: A7Position + halfStep * 46
 }
 
 export const F1Clef = {
@@ -480,7 +505,7 @@ export const F1Clef = {
     octave: 1,
     stave: 'Treble',
     showLedgers: [10, 11, 12, 13],
-    yPosition: `${A7Position + halfStep * 47}px`
+    yPosition: A7Position + halfStep * 47
 }
 
 export const E1Clef = {
@@ -488,7 +513,7 @@ export const E1Clef = {
     octave: 1,
     stave: 'Treble',
     showLedgers: [10, 11, 12, 13],
-    yPosition: `${A7Position + halfStep * 48}px`
+    yPosition: A7Position + halfStep * 48
 }
 
 export const AllNotes = [
@@ -555,6 +580,40 @@ export const AllNotes = [
     G1Clef,
     F1Clef,
     E1Clef,
+]
+
+export const EFlatMajior = [
+    B5Trebble,
+    E6Trebble,
+    A5Trebble,
+
+    B2Clef,
+    E3Clef,
+    A2Clef
+]
+
+export const AFlatMajior = [
+    ...EFlatMajior,
+    D6Trebble,
+    D3Clef,
+]
+
+export const DFlatMajior = [
+    ...AFlatMajior,
+    G5Trebble,
+    G2Clef,
+]
+
+export const GFlatMajior = [
+    ...DFlatMajior,
+    C6Trebble,
+    C3Clef,
+]
+
+export const CFlatMajior = [
+    ...GFlatMajior,
+    F5Trebble,
+    F2Clef,
 ]
 
 function getRandomInt(max: any) {

@@ -1,8 +1,34 @@
+
+
 .App {
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   color: white; 
+}
+
+.contents {
+  width: 300px;
+  margin: 0px auto;
+}
+
+.settings {
+  position: relative;
+  height: 406px;
+}
+
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+.horizontal-center {
+  margin: 0px auto;
+  width: 100%;
 }
 
 .App-logo {
@@ -52,6 +78,11 @@
 #trebleClef {
   top: 27.4px;
   left: 40px;
+  position: absolute;
+}
+
+.key-signature-notes {
+  font-size: 28px;
   position: absolute;
 }
 
