@@ -5,6 +5,7 @@
   background-color: #282c34;
   min-height: 100vh;
   color: white; 
+  font-family: "Roboto";
 }
 
 .contents {
@@ -12,6 +13,14 @@
   margin: 0px auto;
 }
 
+.startBtn {
+  border-top: 1px solid white;
+  margin-top: 20px;
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+}
 .settings {
   position: relative;
   height: 406px;
@@ -27,6 +36,7 @@
 }
 
 .horizontal-center {
+  text-align: left;
   margin: 0px auto;
   width: 100%;
 }

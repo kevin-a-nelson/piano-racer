@@ -8,7 +8,13 @@ import { AFlatMajior, CFlatMajior, DFlatMajior, EFlatMajior, GFlatMajior } from 
 
 import { Piano, KeyboardShortcuts, MidiNumbers } from 'react-piano';
 import KeySignature from './components/KeySignature';
-import { Button } from '@mui/material';
+import { Button, Slider, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+
+
+function valuetext(value: number) {
+  return `${value}°C`;
+}
 
 function DefaultShowLedgers() {
   return [
@@ -55,7 +61,7 @@ const keySignatureOptions = [
 
 const DEFAULT_KEY_SIGNATURE = "EFlatMajior"
 
-const START_TIME = 60
+const START_TIME = 0
 
 function App() {
   const [currentNote, setCurrentNote] = useState(A7Trebble)
@@ -64,6 +70,11 @@ function App() {
   const [wrongAnswerCount, setWrongAnswerCount] = useState(0)
   const [selectedKeySignature, setSelectedKeySignature] = useState(DEFAULT_KEY_SIGNATURE)
   const [time, setTime] = useState(START_TIME)
+  const [value, setValue] = React.useState<number[]>([20, 37]);
+
+  const handleChange = (event: Event, newValue: number | number[]) => {
+    setValue(newValue as number[]);
+  };
 
   const firstNote = MidiNumbers.fromNote('c4');
   const lastNote = MidiNumbers.fromNote('b4');
@@ -218,7 +229,6 @@ function App() {
           </div>
         </div>
 
-        <div style={{height: '5vh'}}></div>
 
         <div className='contents'>
         {
@@ -226,15 +236,45 @@ function App() {
           <div className="settings">
             <div className="vertical-center">
               <div className="horizontal-center">
+                <span style={{fontSize: "20px"}}>Notes Range</span>
+                <Box sx={{m: 2}}></Box>
+                <div style={{display: "flex"}}>
+                  <span style={{fontSize: "30px", display: "block", width: "40px", marginTop: "-9px"}}>𝄞</span>
+                  <Slider
+                    getAriaLabel={() => 'Temperature range'}
+                    value={value}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    getAriaValueText={valuetext}
+                  />
+                </div>
+                <Box sx={{m: 2}}></Box>
+                <div style={{display: 'flex'}}>
+                  <span style={{fontSize: "30px", display: "block", width: "40px", marginTop: "-4px"}}>𝄢</span>
+                  <Slider
+                    getAriaLabel={() => 'Temperature range'}
+                    value={value}
+                    onChange={handleChange}
+                    valueLabelDisplay="auto"
+                    getAriaValueText={valuetext}
+                  />
+                </div>
+                <Box sx={{m: 3}}></Box>
+                <Typography gutterBottom><span style={{ fontSize: "20px" }}>Key</span></Typography>
+                <Box sx={{m: 1}} />
                 <UnstyledSelectSimple options={keySignatureOptions} defaultValue={DEFAULT_KEY_SIGNATURE} onChange={setSelectedKeySignature}/>
-                <hr style={{width: "60px" }}></hr>
-                <Button style={{color: "white" }} onClick={() => restart()} size="medium">Start</Button>
+                <Box sx={{ m: 3 }} />
+                {/* <div className="startBtn">START</div> */}
+                <div style={{margin: "0px auto", width: "74.34px"}}>
+                  <Button style={{color: "white", borderColor: "#999", borderLeft: "none", borderRight: "none", borderBottom: "none", borderRadius: "0px"}} variant="outlined" size="medium">START</Button>
+                </div>
               </div>
             </div>
           </div>
           :
+          <div>
+          <div style={{height: '5vh'}}></div>
           <div className='sheet-music'>
-
             <div id="staves">
               {/* Treble Cleff */}
 
@@ -270,27 +310,26 @@ function App() {
 
             <KeySignature keySignature={selectedKeySignature} />
             <Note note={currentNote}/>
-
           </div>
+            <div style={{height: '1vh'}}></div>
 
+            <div className='piano'>
+              <Piano
+                noteRange={{ first: firstNote, last: lastNote }}
+                onPlayNoteInput={(midiNumber) => onPlayPianoInput(midiNumber)}
+                playNote={(midiNumber) => {
+                  // Play a given note - see notes below
+                }}
+                stopNote={(midiNumber) => {
+                  // Stop playing a given note - see notes below
+                }}
+                width={300}
+              />
+            </div>
+          </div>
         }
         </div>
 
-      <div style={{height: '1vh'}}></div>
-
-      <div className='piano'>
-        <Piano
-          noteRange={{ first: firstNote, last: lastNote }}
-          onPlayNoteInput={(midiNumber) => onPlayPianoInput(midiNumber)}
-          playNote={(midiNumber) => {
-            // Play a given note - see notes below
-          }}
-          stopNote={(midiNumber) => {
-            // Stop playing a given note - see notes below
-          }}
-          width={300}
-        />
-      </div>
     </div>
   );
 }

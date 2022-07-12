@@ -29,17 +29,18 @@ const grey = {
   900: '#1A2027',
 };
 
+const SELECT_WIDTH = 300
+
 const StyledButton = styled('button')(
   ({ theme }) => `
   font-family: IBM Plex Sans, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
   min-height: calc(1.5em + 22px);
-  min-width: 200px;
+  min-width: ${SELECT_WIDTH}px;
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[300]};
   border-radius: 0.75em;
-  margin: 0.5em;
   padding: 10px;
   text-align: left;
   line-height: 1.5;
@@ -74,7 +75,7 @@ const StyledListbox = styled('ul')(
   box-sizing: border-box;
   padding: 5px;
   margin: 10px 0;
-  min-width: 200px;
+  min-width: ${SELECT_WIDTH}px;
   background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
   border: 1px solid ${theme.palette.mode === 'dark' ? grey[800] : grey[300]};
   border-radius: 0.75em;
