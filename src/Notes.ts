@@ -1,7 +1,7 @@
 
-const A7Position = -72
+const A7Position = -65
 const wholeStep = 9
-const halfStep = 9
+const halfStep = 8
 
 const B5TrebbleLeft = 95
 const leftStep = 10
@@ -623,7 +623,7 @@ function getRandomInt(max: any) {
 
 export function getRandomNote() {
     const randomIndex = getRandomInt(AllNotes.length)
-    const randomNote = AllNotes[randomIndex]
+    let randomNote = AllNotes[randomIndex]
 
     return randomNote
 }
