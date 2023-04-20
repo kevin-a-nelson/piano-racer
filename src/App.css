@@ -1,10 +1,8 @@
-
-
 .App {
   text-align: center;
   background-color: #282c34;
   min-height: 100vh;
-  color: white; 
+  color: white;
   font-family: "Roboto";
 }
 
@@ -21,6 +19,7 @@
   text-align: center;
   font-size: 17px;
 }
+
 .settings {
   position: relative;
   height: 406px;
@@ -62,16 +61,16 @@
   font-family: 'Noto Music';
   width: 300px;
 
-  position: relative; 
-  margin: 0 auto; 
+  position: relative;
+  margin: 0 auto;
   text-align: center;
 }
 
 .staff {
   margin-top: 0px;
   padding-top: 0px;
-  position: relative; 
-  height: 9px;
+  position: relative;
+  height: 16px;
   transform: scale(10, 0.2);
 }
 
@@ -81,40 +80,43 @@
 
 .signature {
   margin-left: 18px;
-  position: absolute; 
-  font-size: 1em;
+  position: absolute;
+  font-size: 68px;
 }
 
 #trebleClef {
-  top: 27.4px;
-  left: 40px;
+  top: 46.4px;
+  left: -4px;
   position: absolute;
 }
 
 .key-signature-notes {
-  font-size: 28px;
+  font-size: 50px;
   position: absolute;
 }
 
+.invisible {
+  visibility: visible;
+}
+
 #baseClef {
-  top: 126px;
-  left: 40px;
+  top: 220px;
+  left: -4px;
   position: absolute;
 }
 
 .stavesContainer {
   /* background: blue; */
-  width: 200px;
+  width: 280px;
   /* background: blue; */
   margin: 0px auto;
   /* height: 60px; */
-  height: 250px;
   overflow: hidden;
   /* background: blue; */
 }
 
 #notes {
-  position: absolute; 
+  position: absolute;
   font-size: 33px;
 }
 
@@ -122,9 +124,6 @@
   position: absolute;
 }
 
-.invisible {
-  visibility: hidden;
-}
 
 .piano {
   width: 300px;
@@ -156,6 +155,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

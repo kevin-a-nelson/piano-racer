@@ -86,7 +86,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (time > 0) {
-        setTime((time) => time - 1)
+        setTime((time) => time + 1)
       }
     }, 1000);
     return () => clearInterval(interval);

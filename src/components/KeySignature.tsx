@@ -10,19 +10,19 @@ const keySignatures = {
     "GFlatMajior": GFlatMajior,
 }
 
-export default function KeySignature({keySignature}) {
+export default function KeySignature({ keySignature }) {
     return (
-        <div className="keySignature"> 
-        { 
-            keySignatures[keySignature].map((note, idx) => 
-            (
-                <div className='key-signature-notes' key={idx} style={{ top: `${note.yPosition + 6}px`, left: `${note.left}px`}}>
-                    <div className='note'>
-                        <span>♭</span>
+        <div className="keySignature">
+            {
+                keySignatures[keySignature].map((note, idx) =>
+                (
+                    <div className='key-signature-notes' key={idx} style={{ top: `${note.yPosition}px`, left: `${note.left}px` }}>
+                        <div className='note'>
+                            <span>♭</span>
+                        </div>
                     </div>
-                </div>
-            ))
-        }
+                ))
+            }
         </div>
     )
 }

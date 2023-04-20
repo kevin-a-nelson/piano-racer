@@ -1,7 +1,7 @@
 
-const A7Position = -35
+const A7Position = -72
 const wholeStep = 9
-const halfStep = 4.5
+const halfStep = 9
 
 const B5TrebbleLeft = 95
 const leftStep = 10
@@ -42,7 +42,7 @@ export const D7Trebble = {
     letter: 'D',
     octave: 7,
     stave: 'Treble',
-    showLedgers: [2, 3], 
+    showLedgers: [2, 3],
     yPosition: A7Position + halfStep * 4
 }
 
@@ -523,7 +523,7 @@ export const AllNotes = [
     E7Trebble,
     D7Trebble,
     C7Trebble,
-    
+
     B6Trebble,
     A6Trebble,
     G6Trebble,
@@ -583,6 +583,7 @@ export const AllNotes = [
 ]
 
 export const EFlatMajior = [
+    A7Trebble,
     B5Trebble,
     E6Trebble,
     A5Trebble,
@@ -617,7 +618,7 @@ export const CFlatMajior = [
 ]
 
 function getRandomInt(max: any) {
-  return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * max);
 }
 
 export function getRandomNote() {
