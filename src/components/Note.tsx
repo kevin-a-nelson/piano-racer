@@ -7,15 +7,15 @@ const WRONG_ANSWER_COLOR = 'red'
 
 
 
-export default function Note({note}: any) {
+export default function Note({ note }: any) {
 
-    if(!note) {
+    if (!note) {
         console.table(note)
         return null
     }
 
     return (
-        <div id='notes' style={{ top: `${note.yPosition}px`, right: '71px'}}>
+        <div id='notes' style={{ top: `${note.yPosition}px`, right: '56px' }}>
             <div className='note'>
                 <span>𝅘</span>
             </div>

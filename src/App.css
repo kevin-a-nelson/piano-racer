@@ -91,12 +91,12 @@
 }
 
 .key-signature-notes {
-  font-size: 50px;
+  font-size: 56px;
   position: absolute;
 }
 
 .invisible {
-  visibility: visible;
+  visibility: hidden;
 }
 
 #baseClef {

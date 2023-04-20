@@ -262,7 +262,6 @@ function App() {
                   <Box sx={{ m: 1 }} />
                   <UnstyledSelectSimple options={keySignatureOptions} defaultValue={DEFAULT_KEY_SIGNATURE} onChange={setSelectedKeySignature} />
                   <Box sx={{ m: 3 }} />
-                  {/* <div className="startBtn">START</div> */}
                   <div style={{ margin: "0px auto", width: "74.34px" }} onClick={() => restart()}>
                     <Button style={{ color: "white", borderColor: "#999", borderLeft: "none", borderRight: "none", borderBottom: "none", borderRadius: "0px" }} variant="outlined" size="medium">START</Button>
                   </div>

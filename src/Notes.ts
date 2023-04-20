@@ -3,8 +3,8 @@ const A7Position = -65
 const wholeStep = 9
 const halfStep = 8
 
-const B5TrebbleLeft = 95
-const leftStep = 10
+const B5TrebbleLeft = 78
+const leftStep = 15
 
 export const A7Trebble = {
     letter: 'A',
@@ -517,7 +517,7 @@ export const E1Clef = {
 }
 
 export const AllNotes = [
-    A7Trebble,
+    // A7Trebble,
     G7Trebble,
     F7Trebble,
     E7Trebble,
@@ -546,10 +546,10 @@ export const AllNotes = [
     F4Trebble,
     E4Trebble,
     D4Trebble,
-    C4Trebble,
+    // C4Trebble,
 
 
-    C5Clef,
+    // C5Clef,
 
     B4Clef,
     A4Clef,
@@ -579,11 +579,10 @@ export const AllNotes = [
     A1Clef,
     G1Clef,
     F1Clef,
-    E1Clef,
+    // E1Clef,
 ]
 
 export const EFlatMajior = [
-    A7Trebble,
     B5Trebble,
     E6Trebble,
     A5Trebble,
