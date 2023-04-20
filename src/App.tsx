@@ -208,7 +208,7 @@ function App() {
   return (
     <div className="App">
 
-      <div style={{ height: '5vh' }}></div>
+      <div style={{ height: '0px' }}></div>
 
       <div className='stats'>
         <div className='statNumbers'>
