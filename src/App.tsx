@@ -61,9 +61,10 @@ const keySignatureOptions = [
 
 const DEFAULT_KEY_SIGNATURE = "EFlatMajior"
 
-const START_TIME = 200
+const START_TIME = 60
 
 function App() {
+  const [prevNote, setPrevNote] = useState(null)
   const [currentNote, setCurrentNote] = useState(A7Trebble)
   const [showLedgers, setShowLedgers] = useState(DefaultShowLedgers())
   const [correctAnswerCount, setCorrectAnswerCount] = useState(0)
@@ -86,7 +87,7 @@ function App() {
   useEffect(() => {
     const interval = setInterval(() => {
       if (time > 0) {
-        setTime((time) => time + 1)
+        setTime((time) => time - 1)
       }
     }, 1000);
     return () => clearInterval(interval);
@@ -94,11 +95,17 @@ function App() {
 
   function setRandomNote() {
 
-    const randomNote = Notes.getRandomNote()
-    const noteLedgers = randomNote.showLedgers
+    const prevNote = currentNote
 
-    setCurrentNote((currentNote) => randomNote)
+    let newNote = Notes.getRandomNote()
 
+    while (currentNote == newNote) {
+      newNote = Notes.getRandomNote()
+    }
+
+    setCurrentNote((currentNote) => newNote)
+
+    const noteLedgers = newNote.showLedgers
     const newShowLedgers = DefaultShowLedgers()
 
     for (let i = 0; i < noteLedgers.length; i++) {
@@ -129,7 +136,7 @@ function App() {
     }[midiNumber]
   }
 
-  function onPlayPianoInput(midiNumber) {
+  function onPlayNote(midiNumber) {
 
     let keySignatureFlats = keySignatures[selectedKeySignature].map((keySignature) => keySignature.letter)
     let isFlat = keySignatureFlats.includes(currentNote['letter'])
@@ -141,11 +148,7 @@ function App() {
 
     const inputLetter = midiNumberToLetter(midiNumber)
 
-    // console.table({
-    //   isFlat,
-    //   inputLetter,
-    //   currentNote: currentNote['letter'],
-    // })
+    console.log("hello")
 
     if (inputLetter === currentNote['letter']) {
       setCorrectAnswerCount((correctAnswerCount) => correctAnswerCount + 1)
@@ -277,10 +280,12 @@ function App() {
 
                   <div className='stavesContainer'>
                     <div id="trebleClef" className="signature">𝄞</div>
-                    <div className={`staff ledger ${isInvisible(0)}`}>𝄖</div>
-                    <div className={`staff ledger ${isInvisible(1)}`}>𝄖</div>
-                    <div className={`staff ledger ${isInvisible(2)}`}>𝄖</div>
-                    <div className={`staff ledger ${isInvisible(3)}`}>𝄖</div>
+                    <div className='ledgers'>
+                      <div className={`staff ledger ${isInvisible(0)}`}>𝄖</div>
+                      <div className={`staff ledger ${isInvisible(1)}`}>𝄖</div>
+                      <div className={`staff ledger ${isInvisible(2)}`}>𝄖</div>
+                      <div className={`staff ledger ${isInvisible(3)}`}>𝄖</div>
+                    </div>
                     <div className="staff">𝄖</div>
                     <div className="staff">𝄖</div>
                     <div className="staff">𝄖</div>
@@ -313,10 +318,8 @@ function App() {
               <div className='piano'>
                 <Piano
                   noteRange={{ first: firstNote, last: lastNote }}
-                  onPlayNoteInput={(midiNumber) => onPlayPianoInput(midiNumber)}
-                  playNote={(midiNumber) => {
-                    // Play a given note - see notes below
-                  }}
+                  // onPlayNoteInput={(midiNumber) => onPlayPianoInput(midiNumber)}
+                  playNote={(midiNumber) => onPlayNote(midiNumber)}
                   stopNote={(midiNumber) => {
                     // Stop playing a given note - see notes below
                   }}
